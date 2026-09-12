@@ -1,0 +1,45 @@
+{
+  "name": "express-backend",
+  "version": "1.0.0",
+  "description": "express-backend/\r ├── src/\r │   ├── config/\r │   │   ├── env.ts\r │   │   └── database.ts\r │   │\r │   ├── controllers/\r │   │   └── project.controller.ts\r │   │\r │   ├── services/\r │   │   └── project.service.ts\r │   │\r │   ├── repositories/\r │   │   └── project.repository.ts\r │   │\r │   ├── routes/\r │   │   └── project.routes.ts\r │   │\r │   ├── middleware/\r │   │   ├── auth.middleware.ts → Authentication\r │   │   ├── validate.middleware.ts → Request validation\r │   │   ├── error.middleware.ts → Global error catcher\r │   │   └── notFound.middleware.ts → Handles unknown routes\r │   │\r │   ├── schemas/\r │   │   └── project.schema.ts\r │   │\r │   ├── errors/\r │   │   ├── AppError.ts → Base error class\r │   │   ├── ValidationError.ts → Invalid input\r │   │   ├── NotFoundError.ts → Resource doesn't exist\r │   │   ├── UnauthorizedError.ts → Not authenticated\r │   │   ├── ConflictError.ts → Authenticated but no permission\r │   │   └── ForbiddenError.ts → Duplicate/conflicting data\r │   │\r │   ├── types/\r │   │   └── common.types.ts\r │   │\r │   ├── utils/\r │   │   ├── jwt.ts\r │   │   └── helpers.ts\r │   │\r │   ├── app.ts\r │   └── server.ts\r │\r ├── migrations/\r │   ├── 001_create_users.sql\r │   ├── 002_create_projects.sql\r │   └── ...\r │\r ├── scripts/\r │   └──run_migrations.ts\r │\r │\r ├── seeds/Not Needed Now\r │\r ├── tests/Not Needed Now\r │\r ├── .env\r ├── .env.example\r ├── package.json\r └── tsconfig.json",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/src/server.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "migrate": "tsx scripts/run_migrations.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.11.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "form-data": "^4.0.6",
+    "jsonwebtoken": "^9.0.3",
+    "knex": "^3.3.0",
+    "multer": "^2.2.0",
+    "pg": "^8.23.0",
+    "ws": "^8.21.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.2.0",
+    "@types/node": "^26.2.0",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}
