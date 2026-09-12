@@ -39,13 +39,13 @@ export const authController = {
         .cookie("access_token", result.accessToken, {
           httpOnly: true,
           secure: env.NODE_ENV === "production",
-          sameSite: "lax",
+          sameSite: "none",  // make it none while production
           maxAge: ACCESS_TOKEN_MAX_AGE,
         })
         .cookie("refresh_token", result.refreshToken, {
           httpOnly: true,
           secure: env.NODE_ENV === "production",
-          sameSite: "lax",
+          sameSite: "none",
           maxAge: REFRESH_TOKEN_MAX_AGE,
         })
         .status(200)
@@ -117,7 +117,7 @@ export const authController = {
         .cookie("access_token", accessToken, {
           httpOnly: true,
           secure: env.NODE_ENV === "production",
-          sameSite: "lax",
+          sameSite: "none",
           maxAge: ACCESS_TOKEN_MAX_AGE,
         })
         .status(200)
