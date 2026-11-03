@@ -57,16 +57,24 @@ export const authController = {
     }
   },
 
-  // Logout
+// Logout
   async logout(
     _req: Request,
     res: Response,
     next: NextFunction
   ) {
     try {
+      const cookieOptions = {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "none" as const,
+        // path: "/", // Uncomment if you specified a path during login
+        // domain: ".yourdomain.com", // Uncomment if you used a shared domain during login
+      };
+
       res
-        .clearCookie("access_token")
-        .clearCookie("refresh_token")
+        .clearCookie("access_token", cookieOptions)
+        .clearCookie("refresh_token", cookieOptions)
         .status(200)
         .json({
           message: "Logged out successfully",
